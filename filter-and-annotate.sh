@@ -11,12 +11,13 @@ for y in ${VAR1}
       reformat.sh ${y} out=${y}.fasta minlength=20000
    done
 
+#only works for custom headers with | as separator. Not working on classical ncbi files
 echo "Changing the header"
 VAR2=$(echo *.fasta | xargs ls)
 
 for x in ${VAR2}
    do
-      awk 'BEGIN{FS="|"}{if(/^>/){print ">"$3}else{print $0}}'  ${x} >  ${x}
+      awk 'BEGIN{FS="|"}{if(/^>/){print ">"$3}else{print $0}}'  ${x} >  ${x}.faa
    done
 
 
