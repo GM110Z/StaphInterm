@@ -3,7 +3,7 @@
 echo "Getting rid of small contigs..."
 
 
-#drop any contig smaller than 20kbk
+#drop any contig smaller than 20kbk using bbmap
 
 VAR1=$(echo *.fna | xargs ls)
 for y in ${VAR1}
